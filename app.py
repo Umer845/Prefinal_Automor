@@ -1,5 +1,5 @@
 import streamlit as st
-import premium, risk_profile, dashboard, qa
+import premium, risk_profile, dashboard, qa, Upload
 
 st.markdown("""
 <style>
@@ -27,6 +27,8 @@ if 'page' not in  st.session_state:
 st.sidebar.title("Navigation")
 if st.sidebar.button("Dashboard"):
     st.session_state.page = "Dashboard"
+if st.sidebar.button("UPLOAD FILE"):
+    st.session_state.page = "UPLOAD File"
 if st.sidebar.button("Risk Profile"):
     st.session_state.page = "Risk Profile"
 if st.sidebar.button("Premium"):
@@ -37,6 +39,8 @@ if st.sidebar.button("QA"):
 
 if st.session_state.page == "Dashboard":
    dashboard.show()
+if st.session_state.page == "Upload":
+   Upload.show()
 if st.session_state.page == "Risk Profile":
     risk_profile.show()
 if st.session_state.page == "Premium":
